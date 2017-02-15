@@ -10,6 +10,7 @@ $(document).ready(function() {
                 ORDER BY DESC(?number_of_Accident)";
     
     var queryURL = "http://localhost:3131/Accident/sparql?query=" + encodeURIComponent(query) + "&format=json";
+
     
     $.ajax({
         dataType: "jsonp",
