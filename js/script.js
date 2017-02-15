@@ -16,7 +16,7 @@ $(document).ready(function() {
         dataType: "jsonp",
         url: queryURL,
         success: function(data) {
-            var table = $("#test");              
+            var table = $("#table_region");              
 
             // get the sparql variables from the 'head' of the data.
             var headerVars = data.head.vars;
