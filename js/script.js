@@ -38,7 +38,7 @@ $(document).ready(function() {
     });
     
     function getTableHeaders(headerVars) {
-      var trHeaders = $("");
+      var trHeaders = $("<th>");
       for(var i in headerVars) {
         trHeaders.append( $("" + headerVars[i] + "") );
       }
@@ -46,7 +46,7 @@ $(document).ready(function() {
     }
 
     function getTableRow(headerVars, rowData) {
-      var tr = $("");
+      var tr = $("<tr>");
       for(var i in headerVars) {
         tr.append(getTableCell(headerVars[i], rowData));
       }
@@ -54,7 +54,7 @@ $(document).ready(function() {
     }
 
     function getTableCell(fieldName, rowData) {
-      var td = $("");
+      var td = $("<td>");
       var fieldData = rowData[fieldName];
       td.html(fieldData["value"]);
       return td;
