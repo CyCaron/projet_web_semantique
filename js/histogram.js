@@ -22,10 +22,6 @@ $(document).ready(function() {
             var headerVars = data.head.vars;
             console.log(headerVars);
 
-            // using the vars, make some table headers and add them to the table;
-            var trHeaders = getTableHeaders(headerVars);
-            table.append(trHeaders);
-
             // grab the actual results from the data.
             var bindings = data.results.bindings;
             console.log(bindings)
