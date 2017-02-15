@@ -18,21 +18,21 @@ $(document).ready(function() {
             var table = $("#test");              
 
             // get the sparql variables from the 'head' of the data.
-            var headerVars = data.head.vars; 
+            var headerVars = data.head.vars;
+            console.log(headerVars);
 
             // using the vars, make some table headers and add them to the table;
             var trHeaders = getTableHeaders(headerVars);
-            table.append(trHeaders);  
+            table.append(trHeaders);
 
             // grab the actual results from the data.                                          
             var bindings = data.results.bindings;
+            console.log(bindings)
 
             // for each result, make a table row and add it to the table.
             for(rowIdx in bindings){
               table.append(getTableRow(headerVars, bindings[rowIdx]));
             }
-            
-            console.log(data.results.bindings);
         }
     });
     
