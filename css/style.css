@@ -1,7 +1,26 @@
+body {    
+    font-family: Arial;
+}
+
 /*  **************************************************  */
 /*                      DATAVIZ 1                       */
 /*  **************************************************  */
+#dataviz_1 {
+    display: inline-block;
+}
 
+#dataviz_1 #content {
+    display: inline-block;
+margin-left: 10px;
+}
+
+#dataviz_1 #world-map {
+    float: left;
+}
+
+#table_departements {
+    text-align: center;
+}
 
 /*  **************************************************  */
 /*                      DATAVIZ 2                       */

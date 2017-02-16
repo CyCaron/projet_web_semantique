@@ -44,30 +44,32 @@ $(document).ready(function () {
                 
                 datas[regionName] = [];
             }
+            
+            //Remplissage de la structure de données
             for (i = 0; i < results.length; i += 1) {
                 result = results[i];
                 regionName = result.region.value;
                 datas[regionName].push({departement : result.departement, nbAcc: result.nbAccidents});
             }
-
-            console.log(datas);
             
             $('#world-map').vectorMap({
                 map: 'fr_regions_2016_merc',
-                series: {
-                    regions: [{
-                        scale: ['#C8EEFF', '#0071A4']
-                    }]
+                backgroundColor: 'white',
+                enableZoom: false,
+                zoomButtons : false,
+                regionStyle: {
+                    initial: {
+                        fill: 'steelblue'}
                 },
                 onRegionTipShow: function (e, el, code) {
                     var map = $('#world-map').vectorMap('get', 'mapObject'),
                         regionName = map.getRegionName(code),
                         content = "",
                         i = 0,
-                        nbAccRegion = calculerSomme(datas, regionName);
-                    el.html(el.html() + ' (Nombre d\'accidents : ' + nbAccRegion + ')');
-                    content = "<h2>Nom de la région : " + regionName + "</h2><table id =\"departements\">" +
-                        "<p>Nombre d'accidents dans la région : " + nbAccRegion +
+                        nbAccRegion = calculerSomme(datas, regionName);                    
+                    content = "<h2>Nom de la région : " + regionName + "</h2>" +
+                        "<p>Nombre d'accidents dans la région : " + nbAccRegion + "</p>" +
+                        "<table id =\"table_departements\">" +
                         "<tr><th>Département</th><th>Nombre d'accidents</th></tr>" +
                         "<tbody>";
                     for (i = 0; i < datas[regionName].length; i += 1) {
