@@ -4,8 +4,7 @@
         <meta charset="UTF-8">
         <title>Projet Web sémantique</title>
         <link rel="stylesheet" href="css/style.css"/>
-        <script type="text/javascript" src="lib/jquery-3.1.1.min.js"></script>
-        <script type="text/javascript" src="lib/d3.min.js" charset="utf-8"></script>
+        <link rel="stylesheet" href="js/jquery-jvectormap-2.0.3/jquery-jvectormap-2.0.3.css" type="text/css" media="screen"/>
     </head>
     <body>
         <h1>Projet Web sémantique</h1>
@@ -15,7 +14,8 @@
         
         <!-- Map -->
         <div id="dataviz_1">
-            <!--<table id="table_region"></table>-->
+            <table id="table_region"></table>
+            <div id="world-map" style="width: 600px; height: 400px"></div>
         </div>
         
         <!-- Histogram -->
@@ -51,8 +51,12 @@
             </div>
         </div>
         
-        <!-- Inclusion des librairies -->
-        <!--<script type="text/javascript" src="js/map.js"></script>-->
+        <!-- Inclusion des librairies  JS -->
+        <script type="text/javascript" src="lib/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="lib/d3.min.js" charset="utf-8"></script>
+        <script src="js/jquery-jvectormap-2.0.3/jquery-jvectormap-2.0.3.min.js"></script>
+        <script src="js/jquery-jvectormap-fr_regions_2016-merc.js"></script>
         <script type="text/javascript" src="js/histogram.js"></script>
+        <script src="js/map.js"></script>
     </body>
 </html>
