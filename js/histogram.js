@@ -1,7 +1,9 @@
 $(document).ready(function() {
     
-    function Histogram(id, width, height, axe1, axe2) {  
+    function Histogram(id, width, height, abscisse) {  
         var that = this;
+        
+        this.abscisse = abscisse;
         
         this.margin = { top: 60, bottom: 150, left: 70, right: 100 };
         this.width = width - this.margin.left + this.margin.right;
@@ -54,11 +56,11 @@ $(document).ready(function() {
             .attr("transform", "translate(" + 0 + "," + (-this.margin.top / 2 + 10) + ")")
             .text("Nombre d'accidents");
 
-        this.svg.append("text")
+        this.xLabel = this.svg.append("text")
             .attr("class", "text-axis")
             .attr("text-anchor", "middle")
             .attr("transform", "translate("+ (this.width + this.margin.left - 20) + ", " + (this.height) + ")")
-            .text("Agglomération");
+            .text(abscisse);
         
         // *************************
         //          TOOLTIP
@@ -133,6 +135,9 @@ $(document).ready(function() {
                 .duration(1000)
                 .ease("linear")
                 .call(this.yAxis);
+            
+            this.xLabel
+                .text(histogram.abscisse);
         }
     };
     
@@ -155,9 +160,11 @@ $(document).ready(function() {
         if ($("#select_geo").is(":visible")) {
             value = $("#select_geo").val();
             type = "geo";
+            histogram.abscisse = $("#select_geo option:selected" ).text();
         } else if ($("#select_carac").is(":visible")) {
             value = $("#select_carac").val();
             type = "carac";
+            histogram.abscisse = $("#select_carac option:selected" ).text();
         } else {
             console.log("Erreur ! Valeur de la variable \"value\" : " + value);
         }
@@ -201,6 +208,9 @@ $(document).ready(function() {
         
     });
     
+    var histogram = new Histogram("histogram", 800, 300, $("#select_geo option:selected").text());
+    $("#request").trigger("click");
+    
     function sendRequest(queryURL) {
         $.ajax({
             dataType: "jsonp",
@@ -235,7 +245,4 @@ $(document).ready(function() {
             }
         });
     }
-    
-    var histogram = new Histogram("histogram", 800, 300, $("#select_axe1").val(), $("#select_axe2").val());
-    $("#request").trigger("click");
 });
