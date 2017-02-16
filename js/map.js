@@ -16,7 +16,7 @@ $(document).ready(function() {
         dataType: "jsonp",
         url: queryURL,
         success: function(data) {
-            var table = $("#table_region");              
+            /*var table = $("#table_region");              
 
             // get the sparql variables from the 'head' of the data.
             var headerVars = data.head.vars;
@@ -33,7 +33,10 @@ $(document).ready(function() {
             // for each result, make a table row and add it to the table.
             for(rowIdx in bindings){
               table.append(getTableRow(headerVars, bindings[rowIdx]));
-            }
+            }*/
+            console.log(data.results.bindings[0].region.value);
+            
+            $('#world-map').vectorMap({map: 'fr_regions_2016_merc'});
         }
     });
     
