@@ -1,11 +1,11 @@
 $(document).ready(function() {
     
-    var query = "PREFIX n1: <http://polytech_nantes.org/caron_leflohic/accident/> \
+    var query = "PREFIX acc: <http://polytech_nantes.org/caron_leflohic/accident/> \
                 SELECT DISTINCT ?region (COUNT(DISTINCT ?Accident) AS ?number_of_Accident) \
-                WHERE { ?Departement a n1:Departement . \
-                ?Accident a n1:Accident . \
-                ?Accident n1:departement ?Departement . \
-                ?Departement n1:region ?region . } \
+                WHERE { ?Departement a acc:Departement . \
+                ?Accident a acc:Accident . \
+                ?Accident acc:departement ?Departement . \
+                ?Departement acc:region ?region . } \
                 GROUP BY ?region \
                 ORDER BY DESC(?number_of_Accident)";
     

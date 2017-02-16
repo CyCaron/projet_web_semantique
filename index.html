@@ -4,20 +4,55 @@
         <meta charset="UTF-8">
         <title>Projet Web sémantique</title>
         <link rel="stylesheet" href="css/style.css"/>
-        <script src="lib/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="lib/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="lib/d3.min.js" charset="utf-8"></script>
     </head>
     <body>
         <h1>Projet Web sémantique</h1>
         <h2>Étudiants: Damien LE FLOHIC et Cyril CARON</h2>
         <h3>Département: Informatique</h3>
         <h3>Groupe: ID5</h3>
+        
+        <!-- Map -->
         <div id="dataviz_1">
-            <table id="table_region"></table>
+            <!--<table id="table_region"></table>-->
         </div>
+        
+        <!-- Histogram -->
         <div id="dataviz_2">
+            <h3>Nombre d'accidents</h3>
+            <label for="select_abscisses">Axe des abscisses : </label>
+            <select id="select_abscisses">
+                <option value="geo" selected>Zone géographique</option>
+                <option value="carac">Caractéristiques de l'accident</option>
+            </select>
+            
+            <select id="select_geo">
+                <option value="acc:region" selected>Région</option>
+                <option value="rdfs:label">Département</option>
+            </select>
+            
+            <select id="select_carac" style="display: none">
+                <option value="acc:agglomeration" selected>Agglomération</option>
+                <option value="acc:collision">Collision</option>
+                <option value="acc:intersection">Intersection</option>
+                <option value="acc:luminosité">Luminosité</option>
+                <option value="acc:meteo">Météo</option>
+                <option value="acc:provenance">Provenance</option>
+            </select>
+            
+            <input type="button" id="request" value="Ok"/>
+            
+            <span id="histogram_loader">
+                <span class="loader-bars"><span></span></span>
+                <span>Chargement des données en cours ...</span>
+            </span>
+            <div id="histogram">
+            </div>
         </div>
         
         <!-- Inclusion des librairies -->
-        <script src="js/script.js"></script>
+        <!--<script type="text/javascript" src="js/map.js"></script>-->
+        <script type="text/javascript" src="js/histogram.js"></script>
     </body>
 </html>
