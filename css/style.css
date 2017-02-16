@@ -26,6 +26,9 @@
     font-size: 11px;
 }
 
+#dataviz_2 .text-axis {
+    font-weight: bold;
+}
 
 #histogram_tooltip {
     display: none;

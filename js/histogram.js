@@ -3,7 +3,7 @@ $(document).ready(function() {
     function Histogram(id, width, height, axe1, axe2) {  
         var that = this;
         
-        this.margin = { top: 60, bottom: 150, left: 60, right: 10 };
+        this.margin = { top: 60, bottom: 150, left: 70, right: 100 };
         this.width = width - this.margin.left + this.margin.right;
         this.height = height - this.margin.top + this.margin.bottom;
         
@@ -49,14 +49,16 @@ $(document).ready(function() {
                 .call(this.yAxis);
         
         this.svg.append("text")
+            .attr("class", "text-axis")
             .attr("text-anchor", "middle")
-            .attr("transform", "translate(" + 0 + "," + (-this.margin.top / 2) + ")")
-            .text("Nombre d'accident");
+            .attr("transform", "translate(" + 0 + "," + (-this.margin.top / 2 + 10) + ")")
+            .text("Nombre d'accidents");
 
         this.svg.append("text")
+            .attr("class", "text-axis")
             .attr("text-anchor", "middle")
-            .attr("transform", "translate("+ 0 + ", " + (this.width) + ")rotate(90)")
-            .text("Date");
+            .attr("transform", "translate("+ (this.width + this.margin.left - 20) + ", " + (this.height) + ")")
+            .text("Agglomération");
         
         // *************************
         //          TOOLTIP
