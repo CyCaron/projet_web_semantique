@@ -5,7 +5,7 @@ $(document).ready(function() {
         
         this.abscisse = abscisse;
         
-        this.margin = { top: 60, bottom: 150, left: 70, right: 100 };
+        this.margin = { top: 90, bottom: 150, left: 80, right: 120 };
         this.width = width - this.margin.left + this.margin.right;
         this.height = height - this.margin.top + this.margin.bottom;
         

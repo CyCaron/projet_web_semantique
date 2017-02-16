@@ -38,7 +38,7 @@ margin-left: 10px;
 }
 
 #dataviz_2 rect:hover {
-    fill: blue;
+    opacity: 0.8;
 }
 
 #dataviz_2 .x text {
